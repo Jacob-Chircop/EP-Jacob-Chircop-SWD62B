@@ -37,5 +37,11 @@ namespace Presentation.Controllers
             pollRepository.CreatePoll(newPoll);
             return View();
         }
+
+        public IActionResult Vote(int pollId, int optionNumber, [FromServices] PollRepository pollRepository)
+        {
+            pollRepository.Vote(pollId, optionNumber);
+            return RedirectToAction("PollDetails", new { id = pollId });
+        }
     }
 }
