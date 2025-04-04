@@ -6,7 +6,14 @@ namespace Presentation.Controllers
 {
     public class PollController : Controller
     {
-        public IActionResult Index([FromServices] PollRepository pollRepository)
+        /*public IActionResult Index([FromServices] PollRepository pollRepository)
+        {
+            var polls = pollRepository.GetPolls().OrderByDescending(p => p.DateCreated);
+            //var polls = pollRepository.GetPolls();
+            return View(polls);
+        }*/
+
+        public IActionResult Index([FromServices] PollFileRepository pollRepository)
         {
             var polls = pollRepository.GetPolls().OrderByDescending(p => p.DateCreated);
             //var polls = pollRepository.GetPolls();
@@ -26,9 +33,21 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreatePoll(Poll newPoll, [FromServices] PollRepository pollRepository)
+        /*public IActionResult CreatePoll(Poll newPoll, [FromServices] PollRepository pollRepository)
         {
             
+            newPoll.Option1VotesCount = 0;
+            newPoll.Option2VotesCount = 0;
+            newPoll.Option3VotesCount = 0;
+            newPoll.DateCreated = DateTime.Now;
+
+            pollRepository.CreatePoll(newPoll);
+            return RedirectToAction("Index");
+        }*/
+
+        public IActionResult CreatePoll(Poll newPoll, [FromServices] PollFileRepository pollRepository)
+        {
+
             newPoll.Option1VotesCount = 0;
             newPoll.Option2VotesCount = 0;
             newPoll.Option3VotesCount = 0;
