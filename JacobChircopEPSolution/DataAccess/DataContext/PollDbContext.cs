@@ -5,10 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace DataAccess.DataContext
 {
-    public class PollDbContext : DbContext
+    public class PollDbContext : IdentityDbContext<IdentityUser>
     {
         public PollDbContext(DbContextOptions<PollDbContext> options) : base(options) { }
         public DbSet<Poll> Polls { get; set; }

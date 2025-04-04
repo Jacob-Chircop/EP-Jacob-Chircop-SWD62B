@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using DataAccess.DataContext;
 using DataAccess.Repositories;
 using Domain.Interfaces;
+using Presentation.Filters;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPollRepository, PollRepository>();
 //builder.Services.AddScoped<IPollRepository, PollFileRepository>();
 
+builder.Services.AddScoped<VoteFilter>();
 
 
 var app = builder.Build();

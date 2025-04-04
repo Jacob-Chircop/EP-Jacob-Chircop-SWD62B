@@ -28,11 +28,11 @@ namespace DataAccess.Repositories
             return GetPolls().FirstOrDefault(p => p.Id == id);
         }
 
-        public void Vote(int pollId, int optionNumber)
+        public void Vote(int pollId, int optionNumber, string userId)
         {
             var polls = GetPolls().ToList();
             var poll = polls.FirstOrDefault(p => p.Id == pollId);
-            if (poll != null)
+            if (poll != null && !poll.VotersID.Contains(userId))
             {
                 switch (optionNumber)
                 {
@@ -46,6 +46,7 @@ namespace DataAccess.Repositories
                         poll.Option3VotesCount++;
                         break;
                 }
+                poll.VotersID.Add(userId);
                 string updatedJson = JsonSerializer.Serialize(polls, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(_filePath, updatedJson);
             }
@@ -61,6 +62,12 @@ namespace DataAccess.Repositories
 
             string updatedJson = JsonSerializer.Serialize(polls, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(_filePath, updatedJson);
+        }
+
+        public bool HasUserVoted(int pollId, string userId)
+        {
+            var poll = GetPollById(pollId);
+            return poll != null && poll.VotersID.Contains(userId);
         }
     }
 }
