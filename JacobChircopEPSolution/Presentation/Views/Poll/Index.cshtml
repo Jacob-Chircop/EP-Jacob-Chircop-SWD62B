@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="CreatePoll">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -67,7 +67,7 @@
                 @Html.DisplayFor(modelItem => item.DateCreated)
             </td>
             <td>
-                <a asp-action="Vote" asp-route-id="@item.Id">Vote</a>
+                    <a asp-action="PollDetails" asp-route-id="@item.Id">Vote</a>
             </td>
         </tr>
 }

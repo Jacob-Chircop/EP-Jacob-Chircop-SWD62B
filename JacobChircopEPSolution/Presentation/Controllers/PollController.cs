@@ -13,7 +13,13 @@ namespace Presentation.Controllers
             return View(polls);
         }
 
-        
+        public IActionResult PollDetails(int id, [FromServices] PollRepository pollRepository)
+        {
+            var poll = pollRepository.GetPollById(id);
+            
+            return View(poll);
+        }
+
         public IActionResult CreatePoll()
         { 
             return View();
