@@ -1,4 +1,5 @@
 ﻿using DataAccess.DataContext;
+using Domain.Interfaces;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class PollRepository
+    public class PollRepository : IPollRepository
     {
         private PollDbContext _context;
 
@@ -52,6 +53,6 @@ namespace DataAccess.Repositories
         {
             _context.Polls.Add(poll);
             _context.SaveChanges();
-        }
+        }  
     }
 }

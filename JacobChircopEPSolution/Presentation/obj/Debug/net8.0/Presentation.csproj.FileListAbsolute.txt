@@ -271,3 +271,4 @@ C:\Users\jacch\Documents\GitHub\EP-Jacob-Chircop-SWD62B\JacobChircopEPSolution\P
 C:\Users\jacch\Documents\GitHub\EP-Jacob-Chircop-SWD62B\JacobChircopEPSolution\Presentation\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\jacch\Documents\GitHub\EP-Jacob-Chircop-SWD62B\JacobChircopEPSolution\Presentation\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\jacch\Documents\GitHub\EP-Jacob-Chircop-SWD62B\JacobChircopEPSolution\Presentation\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\jacch\Documents\GitHub\EP-Jacob-Chircop-SWD62B\JacobChircopEPSolution\Presentation\bin\Debug\net8.0\polls.json

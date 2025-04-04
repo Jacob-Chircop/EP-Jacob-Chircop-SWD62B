@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.DataContext;
 using DataAccess.Repositories;
+using Domain.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,8 +17,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<PollDbContext>();
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<PollRepository>();
-builder.Services.AddScoped<PollFileRepository>();
+//builder.Services.AddScoped<IPollRepository, PollRepository>();
+builder.Services.AddScoped<IPollRepository, PollFileRepository>();
+
+
 
 var app = builder.Build();
 
