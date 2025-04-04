@@ -35,7 +35,7 @@ namespace Presentation.Controllers
             newPoll.DateCreated = DateTime.Now;
 
             pollRepository.CreatePoll(newPoll);
-            return View();
+            return RedirectToAction("Index");
         }
 
         public IActionResult Vote(int pollId, int optionNumber, [FromServices] PollRepository pollRepository)
